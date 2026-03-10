@@ -1,0 +1,203 @@
+:root {
+  /* Colors - Structured Professional Elegance */
+  --sage: #5D6B4A; 
+  --sage-light: #82916F;
+  --sage-muted: #DDE3D5;
+  --ivory: #F9F9F7;
+  --cream: #F5F4EA;
+  --charcoal: #1A1A1A;
+  --charcoal-light: #404040;
+  --white: #FFFFFF;
+  --border-color: #E5E5E0;
+  
+  /* Backgrounds */
+  --bg-main: var(--white);
+  --bg-alt: var(--ivory);
+  --bg-dark: var(--charcoal);
+  
+  /* Text */
+  --text-main: var(--charcoal);
+  --text-muted: #525252;
+  --text-light: var(--white);
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 6rem;
+  
+  /* UI Elements */
+  --radius: 12px; /* Sharper, more professional corners */
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --transition: all 0.3s ease;
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography - Clear & Bold */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.8rem, 7vw, 4.5rem); margin-bottom: var(--space-md); }
+h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: var(--space-md); }
+h3 { font-size: clamp(1.5rem, 3vw, 1.8rem); margin-bottom: var(--space-sm); }
+
+p {
+  margin-bottom: var(--space-md);
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 65ch;
+  text-decoration: none; /* Ensure no underlines */
+}
+
+a {
+  text-decoration: none; /* Strict no underline policy */
+  color: inherit;
+}
+
+.lead {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--sage);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Buttons - Solid & Grounded */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-primary {
+  background-color: var(--sage);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--charcoal);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  color: var(--charcoal);
+}
+
+.btn-secondary:hover {
+  background-color: var(--ivory);
+  border-color: var(--sage);
+}
+
+/* Layout Consistency */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 968px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  section { padding: 4rem 0; }
+}
+
+/* Components - No Glassmorphism */
+.card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--sage-light);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--sage);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px; /* Squared off for professionalism */
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--sage-muted);
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background: var(--ivory);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  color: var(--sage);
+  border: 1px solid var(--border-color);
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.bg-ivory { background-color: var(--bg-alt); }
+.bg-dark { background-color: var(--bg-dark); color: var(--white); }
+.bg-dark h1, .bg-dark h2, .bg-dark h3 { color: var(--white); }
+
+/* Remove Organic Gradients - Use Solid Dividers */
+.organic-bg::after { display: none; }
+.home { background-color: var(--bg-main); }
